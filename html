@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Imóveis</title>
+    <link rel="stylesheet" href="calculadora teste.css">
+</head>
+<body>
+
+    <h1>Calculadora de Imóveis</h1>
+
+    <div class="container">
+        <h3> Cálculo do valor do imóvel</h3>
+        <label for="area">Área do imóvel (m²): </label>
+        <input type="number" id="area" placeholder="Área em m²">
+        <br>
+        <label for="preco">Preço por metro quadrado (R$): </label>
+        <input type="number" id="preco" placeholder="Preço por m²">
+        <br><br>
+        <button onclick="calcularValorImovel()">Calcular Valor do Imóvel</button>
+        <p id="resultadoValorImovel" class="resultado"></p>
+        
+
+       
+    </div>
+
+    <script>
+
+        function calcularValorImovel() {
+            var area = parseFloat(document.getElementById("area").value);
+            var preco = parseFloat(document.getElementById("preco").value);
+
+            if (isNaN(area) || isNaN(preco)) {
+                document.getElementById("resultadoValorImovel").innerText = "Por favor, preencha os valores corretamente.";
+                return;
+            }
+
+            let valorImovel = area * preco;
+            document.getElementById("resultadoValorImovel").innerText = `O valor total do imóvel é: R$ ${valorImovel.toFixed(2)}`;
+        }
+
+        
+    </script>
+
+</body>
+</html>
